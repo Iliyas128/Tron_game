@@ -18,7 +18,7 @@ const BottomNavigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border max-w-[375px] mx-auto h-[104px]">
+    <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border max-w-[377px] mx-auto h-[104px]">
       <div className="flex justify-around items-center h-full px-2">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
@@ -27,7 +27,7 @@ const BottomNavigation = () => {
               key={item.path}
               to={item.path}
               className={cn(
-                "flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all",
+                "flex flex-col items-center rounded-lg transition-all",
                 isActive 
                   ? "text-white" 
                   : "text-primary hover:text-foreground"

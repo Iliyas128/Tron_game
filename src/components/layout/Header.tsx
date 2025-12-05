@@ -17,7 +17,7 @@ const Header = ({ onExit }: HeaderProps) => {
         onClick={handleExit}
         className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-sm font-semibold"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-4 h-4" />
         <span>
           Выход
         </span>

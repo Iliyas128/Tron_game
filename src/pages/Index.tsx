@@ -73,7 +73,7 @@ const Index = () => {
 
           </div>
         </div>
-        <div className="relative w-full rounded-2xl overflow-hidden bg-black/40 mt-4 h-[560px]">
+        <div className="relative w-full rounded-2xl overflow-hidden mt-4 h-[560px]">
           <img
             src={mainBackground}
             alt="Main background"
