@@ -9,25 +9,19 @@ import miniCupsIcon from "@/assets/miniCups.svg";
 import frame1 from "@/assets/backgroundInMain.svg";
 import avatar from "@/assets/mainUserLogo.svg";
 import mainBackground from "@/assets/mainBackground.svg";
+import background from "@/assets/background.svg";
 import pvpButton from "@/assets/pvpButton.svg";
-
-const games = [
-  { id: 1, name: "Dice", icon: Dice1, players: 234, hot: true },
-  { id: 2, name: "Дуэль", icon: Target, players: 156, hot: false },
-  { id: 3, name: "Команды", icon: Users, players: 89, hot: true },
-];
-
-const quickActions = [
-  { label: "Быстрая игра", icon: Gamepad2, variant: "primary" as const },
-  { label: "Турниры", icon: Star, variant: "secondary" as const },
-];
 
 const Index = () => {
   return (
-      <MobileLayout>
+      <MobileLayout scrollable={false}>
+        <div
+          className="min-h-screen bg-cover bg-no-repeat"
+          style={{ backgroundImage: `url(${background})` }}
+        >
         <Header />
         
-        <div>
+        <div className="px-1">
         <div className="flex justify-between mt-0 px-2">
           <div>
             <span className="text-base font-medium">Балансы</span>
@@ -73,20 +67,20 @@ const Index = () => {
 
           </div>
         </div>
-        <div className="relative w-full rounded-2xl overflow-hidden mt-4 h-[560px]">
+        <div className="relative rounded-2xl overflow-hidden h-[500px]">
           <img
             src={mainBackground}
             alt="Main background"
-            className="absolute inset-0 w-full h-full object-contain object-top"
+            className="absolute inset-0 w-[400px] h-full object-top"
           />
-          <div className="relative flex items-end justify-center h-[420px] px-6 pb-6">
+          <div className="relative flex items-end justify-center h-[450px] px-6 pb-6">
             <Button variant="ghost" className="p-0 bg-transparent hover:bg-transparent">
               <img src={pvpButton} alt="PvP" className="h-16 w-auto" />
             </Button>
           </div>
         </div>
-
       </div>
+        </div>
       </MobileLayout>
   );
 };
