@@ -24,7 +24,6 @@ const quickActions = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-[url('/src/assets/background.jpg')] bg-cover bg-center bg-no-repeat">
       <MobileLayout>
         <Header />
         
@@ -89,7 +88,6 @@ const Index = () => {
 
       </div>
       </MobileLayout>
-    </div>
   );
 };
 
