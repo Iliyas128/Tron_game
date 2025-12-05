@@ -12,25 +12,10 @@ const Header = ({ onExit }: HeaderProps) => {
   const handleExit = onExit ?? (() => navigate(-1));
 
   return (
-    <header className="flex px-2 items-center justify-between bg-background/80 backdrop-blur-sm sticky top-0 z-10 max-w-[375px] mx-auto h-[118px]">
-      <button
-        onClick={handleExit}
-        className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-sm font-semibold"
-      >
-        <ChevronLeft className="w-4 h-4" />
-        <span>
-          Выход
-        </span>
-      </button>
-
-      <div className="flex items-center justify-center flex-1 px-4">
+    <header className="flex items-center bg-background/80 backdrop-blur-sm sticky z-10 max-w-[375px] mx-auto h-[118px]">
+      <div className="flex justify-center flex-1 px-4">
         <img src={logo} alt="TRON" className="h-5 object-contain" />
       </div>
-
-      <button className="flex items-center gap-2 px-3 py-2 rounded-full bg-secondary text-sm font-semibold">
-        <ChevronDown className="w-6 h-6" />
-        <span>&middot;&middot;&middot;</span>
-      </button>
     </header>
   );
 };
