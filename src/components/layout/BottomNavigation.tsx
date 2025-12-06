@@ -1,17 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import trophyIcon from "@/assets/trophy.svg";
-import friendsIcon from "@/assets/friends.svg";
-import homeIcon from "@/assets/home.svg";
-import tasksIcon from "@/assets/tasksToDo.svg";
-import profileIcon from "@/assets/community.svg";
+import trophyIcon from "@/assets/trophy.png";
+import friendsIcon from "@/assets/friends.png";
+import homeIcon from "@/assets/home.png";
+import tasksIcon from "@/assets/tasksToDo.png";
+import profileIcon from "@/assets/community.png";
 
 const navItems = [
-  { icon: trophyIcon, label: "Лидеры", path: "/leaders" },
-  { icon: friendsIcon, label: "Друзья", path: "/friends" },
-  { icon: homeIcon, label: "Главная", path: "/" },
-  { icon: tasksIcon, label: "Задания", path: "/tasks" },
-  { icon: profileIcon, label: "Профиль", path: "/profile" },
+  { icon: trophyIcon, path: "/leaders" },
+  { icon: friendsIcon, path: "/friends" },
+  { icon: homeIcon, path: "/" },
+  { icon: tasksIcon, path: "/tasks" },
+  { icon: profileIcon, path: "/profile" },
 ];
 
 const BottomNavigation = () => {
@@ -35,15 +35,14 @@ const BottomNavigation = () => {
             >
               <img
                 src={item.icon}
-                alt={item.label}
                 className={cn(
-                  " nav-icon transition-all",
-                  isActive ? "nav-icon-active" : "nav-icon-inactive"
+                  "transition-all",
+                  isActive
+                    ? "filter brightness-0 invert"
+                    : "filter grayscale brightness-75 opacity-80"
                 )}
+                alt="nav icon"
               />
-              <span className="text-[10px] font-medium leading-[12px]">
-                {item.label}
-              </span>
             </Link>
           );
         })}

@@ -5,12 +5,14 @@ interface MobileLayoutProps {
   children: ReactNode;
   showNav?: boolean;
   scrollable?: boolean;
+  contentPaddingBottomClass?: string;
 }
 
 const MobileLayout = ({
   children,
   showNav = true,
   scrollable = true,
+  contentPaddingBottomClass = "pb-[120px]",
 }: MobileLayoutProps) => {
   // When scroll is disabled, also lock body to avoid page-level scrolling on mobile.
   useEffect(() => {
@@ -24,11 +26,11 @@ const MobileLayout = ({
   }, [scrollable]);
 
   const containerClasses = scrollable
-    ? "bg-background flex flex-col w-full max-w-[390px] mx-auto relative min-h-screen"
+    ? "bg-background flex flex-col w-full mx-auto relative min-h-screen"
     : "bg-background flex flex-col w-full max-w-[390px] mx-auto relative overflow-hidden";
   const contentClasses = scrollable
-    ? "flex-1 overflow-auto pb-[120px]"
-    : "flex-1 overflow-hidden pb-[120px]";
+    ? `flex-1 overflow-auto ${contentPaddingBottomClass}`
+    : `flex-1 overflow-hidden ${contentPaddingBottomClass}`;
 
   return (
     <div

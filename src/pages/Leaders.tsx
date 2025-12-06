@@ -2,10 +2,14 @@ import { useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
-import leaderRewardFull from "@/assets/leader/leaderRewardFull.svg";
+import leaderRewardFull from "@/assets/leader/leaderRewardFull.png";
 import leaderTopBackgroundReverse from "@/assets/leader/leadersTopBackgroundReverse.svg";
 import leaderUserLogo from "@/assets/leader/leaderUserLogo.svg";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
+import redFrame517 from "@/assets/leader/redFrame538.svg";
+import firstPlaceLogo from "@/assets/firstPlaceLogo.png";
+import secondPlaceLogo from "@/assets/secondPlaceLogo.png";
+import thirdPlaceLogo from "@/assets/thirdPlaceLogo.png";
 
 const tabs = ["Участники", "Кланы"];
 
@@ -49,6 +53,7 @@ const participantsList = [
 const Leaders = () => {
   const [activeTab, setActiveTab] = useState("Кланы");
   const [activePeriod, setActivePeriod] = useState<"Месяц" | "Всё время">("Месяц");
+  const [showRewards, setShowRewards] = useState(false);
 
   const renderCard = (item: { id: number; title: string; subtitle: string; score: number; badge: string }) => (
     <div
@@ -86,12 +91,29 @@ const Leaders = () => {
             className="absolute -top-6 left-1/2 -translate-x-1/2 h-[360px] object-contain pointer-events-none"
           />
           {/* Reward banner */}
-        <div className="-mt-10 w-full px-4 pb-16">
-          <img
-            src={leaderRewardFull}
-            alt="leader rewards"
-            className="w-full rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]"
-          />
+        <div className="-mt-10 w-full px-4 pb-10">
+          <div className="relative w-full overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]">
+            <img
+              src={leaderRewardFull}
+              alt="leader rewards"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center">
+              <div className="pl-4 pr-2 py-4 max-w-[60%] text-white space-y-2">
+                <h3 className="text-base font-semibold leading-tight">Награды за декабрь</h3>
+                <p className="text-xs text-white/70">
+                  Сражайся в PVP-сражениях,<br/>побеждай и получай награды.
+                </p>
+                <button
+                  className="mt-3 inline-flex items-center justify-center h-8 px-5 rounded-2xl bg-[#b10000] text-white text-xs font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]"
+                  onClick={() => setShowRewards(true)}
+                >
+                  Посмотреть награды
+                </button>
+              </div>
+            </div>
+          </div>
+          
         </div>
         </div>
 
@@ -147,6 +169,62 @@ const Leaders = () => {
         </div>
         </div>
       </div>
+
+      {showRewards && (
+        <div className="fixed inset-0 z-40 flex items-end sm:items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            onClick={() => setShowRewards(false)}
+          />
+          <div className="relative w-full max-w-[430px] mx-auto px-2 sm:pb-0">
+            <div
+              className="relative w-full h-[538px] overflow-hidden rounded-[32px]"
+              style={{
+                backgroundImage: `url(${redFrame517})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            >
+              <button
+                className="absolute top-7 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 text-white text-3xl leading-none"
+                onClick={() => setShowRewards(false)}
+              >
+                ×
+              </button>
+              <div className="px-5 pt-8 space-y-4">
+                <h3 className="text-2xl font-normal text-white">Список наград</h3>
+                <div className="space-y-3">
+                  {[
+                    { label: "1", icon: firstPlaceLogo },
+                    { label: "2", icon: secondPlaceLogo },
+                    { label: "3", icon: thirdPlaceLogo },
+                    { label: "4-10" },
+                    { label: "10-50" },
+                    { label: "50-100" },
+                    { label: "100-500" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="w-full h-[50px] rounded-2xl bg-[#2b2b2b] flex items-center px-4 gap-3 text-white shadow-[0_12px_30px_-18px_rgba(0,0,0,0.7)]"
+                    >
+                      <div className="flex items-center gap-2 w-24">
+                        {item.icon ? (
+                          <img src={item.icon} alt={item.label} className="w-6 h-6" />
+                        ) : null}
+                        <span className="text-base font-semibold">{item.label}</span>
+                      </div>
+                      <div className="flex-1 text-right text-sm text-gray-400">
+                        Нажми «Подписаться» внизу экрана.
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </MobileLayout>
   );
 };
