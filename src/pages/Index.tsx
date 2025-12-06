@@ -14,7 +14,7 @@ import pvpButton from "@/assets/pvpButton.svg";
 
 const Index = () => {
   return (
-      <MobileLayout scrollable={false}>
+      <MobileLayout>
         <div
           className="min-h-screen bg-cover bg-no-repeat"
           style={{ backgroundImage: `url(${background})` }}
