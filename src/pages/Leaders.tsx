@@ -4,7 +4,7 @@ import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
 import leaderTopBackgroundReverse from "@/assets/leader/leadersTopBackgroundReverse.svg";
-import leaderUserLogo from "@/assets/leader/leaderUserLogo.svg";
+import leaderUserLogo from "@/assets/mainUserLogo.svg";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
 import redFrame517 from "@/assets/leader/redFrame538.svg";
 import firstPlaceLogo from "@/assets/firstPlaceLogo.svg";
@@ -63,7 +63,7 @@ const Leaders = () => {
       <div className="flex items-center gap-3 overflow-hidden">
         <div className="relative">
           <img src={leaderUserLogo} alt={item.title} className="w-12 h-12 rounded-xl" />
-          <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-yellow-400 text-black text-xs font-semibold flex items-center justify-center">
+          <div className="absolute bottom-0.5 right-0.5 w-4 h-4 rounded-full bg-yellow-400 text-black text-xs font-semibold flex items-center justify-center">
             {item.badge}
           </div>
         </div>
