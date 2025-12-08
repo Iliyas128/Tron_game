@@ -47,8 +47,8 @@ const Friends = () => {
           />
           <div className="absolute inset-0" />
           <div className="absolute flex items-center flex-col inset-x-0 bottom-1 text-center">
-            <h1 className="text-3xl font-normal leading-tight">Мои друзья</h1>
-            <p className="text-xs text-white/50 leading-snug max-w-xl">
+            <h1 className="text-3xl font-bold leading-tight font-jura">Мои друзья</h1>
+            <p className="text-xs font-montserrat text-white/50 leading-snug max-w-xl">
               Приглашай друзей и получай 10% <br/> от их доходов в валюте TON
             </p>
           </div>
@@ -59,19 +59,19 @@ const Friends = () => {
           <div className="flex gap-3">
             <div className="h-12 flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 flex flex-col items-center justify-center">
               <div className="flex items-center gap-1 text-sm">
-                <img src={goldsIcon} alt="gold" className="w-4 h-4" />
-                <span className="text-xs font-semibold">{receivedAmount}</span>
+                <img src={goldsIcon} alt="gold" className="w-3 h-3" />
+                <span className="text-[12px] font-semibold">{receivedAmount}</span>
               </div>
-              <span className="text-sm text-white/90">Получено</span>
+              <span className="text-[12px] font-montserrat text-white/90">Получено</span>
             </div>
             <div className="h-12 flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 flex flex-col items-center justify-center">
               <div className="flex items-center gap-1 text-sm">
-                <img src={goldsIcon} alt="gold" className="w-4 h-4" />
-                <span className="text-xs font-semibold">
+                <img src={goldsIcon} alt="gold" className="w-3 h-3" />
+                <span className="text-[12px] font-semibold">
                   {availableAmount > 0 ? availableAmount : 0}
                 </span>
               </div>
-              <span className="text-sm text-white/90">Доступно</span>
+              <span className="text-[12px] font-montserrat text-white/90">Доступно</span>
             </div>
           </div>
 
@@ -80,7 +80,7 @@ const Friends = () => {
             <button className="w-full h-14 rounded-2xl bg-[#b10000] text-white text-lg font-semibold flex items-center justify-center gap-3 shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]">
               <img src={goldsIcon} alt="gold" className="w-5 h-5" />
               <span className="flex gap-2 items-center">
-                <p className="text-base">Собрать</p>
+                <p className="text-base font-montserrat">Собрать</p>
                 <img src={whiteGold} alt="white gold" className=""/>
                 <span className="text-base">
                 {availableAmount}
@@ -91,7 +91,7 @@ const Friends = () => {
 
           {/* Friends list header */}
           <div className="flex items-center gap-2">
-            <div className="text-base font-light">Список друзей</div>
+            <div className="text-base font-semibold font-montserrat">Список друзей</div>
             <div className="text-sm text-white/80">{friendsList.length}</div>
           </div>
 
@@ -108,7 +108,7 @@ const Friends = () => {
                     alt={friend.name}
                     className="w-11 h-11 rounded-xl"
                   />
-                  <div className="text-base font-light truncate">{friend.name}</div>
+                  <div className="text-base font-montserrat truncate">{friend.name}</div>
                 </div>
                 <div className="flex items-center gap-1 text-sm font-light">
                   <img src={goldsIcon} alt="gold" className="w-4 h-4" />

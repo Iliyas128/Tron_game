@@ -7,6 +7,7 @@ import { Gamepad2, Dice1, Target, Users, Flame, Star, ArrowRight } from "lucide-
 import diamondsIcon from "@/assets/diamonds.svg";
 import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
+import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
 import frame1 from "@/assets/backgroundInMain.svg";
 import avatar from "@/assets/mainUserLogo.svg";
 import mainBackground from "@/assets/mainBackground.svg";
@@ -31,15 +32,15 @@ const Index = () => {
 
         <div className="px-4">
           <div className="flex justify-between items-center mt-1 mb-3">
-            <span className="text-lg font-semibold text-white">Балансы</span>
+            <span className="text-sm font-semibold text-white font-montserrat">Балансы</span>
             <div className="flex items-center gap-3 text-white text-base font-semibold">
               <div className="flex items-center gap-1">
-                <img src={diamondsIcon} alt="Diamonds" className="w-5 h-5" />
-                <span>17</span>
+                <img src={diamondsIcon} alt="Diamonds" className="w-4 h-4" />
+                <span className="font-montserrat text-sm">17</span>
               </div>
               <div className="flex items-center gap-1">
-                <img src={goldsIcon} alt="Golds" className="w-5 h-5" />
-                <span>3.2</span>
+                <img src={goldsIcon} alt="Golds" className="w-4 h-4" />
+                <span className="font-montserrat text-sm">3.2</span>
               </div>
             </div>
           </div>
@@ -50,17 +51,17 @@ const Index = () => {
               <img src={avatar} alt="avatar" className="w-20 h-20 rounded-2xl" />
             </div>
             <div className="flex-1 min-w-0 space-y-1">
-              <h1 className="text-white text-3xl font-semibold leading-tight truncate">
+              <h1 className="text-white text-xl leading-[22px] font-bold leading-tight truncate font-montserrat">
                 Name Username
               </h1>
-              <p className="text-white/70 text-sm leading-none">@user_name</p>
+              <p className="text-white/70 text-sm leading-none font-montserrat">@user_name</p>
               <div className="flex items-center gap-3 mt-2">
-                <div className="px-3 py-1 bg-white/10 text-white text-sm rounded-lg">
+                <div className="px-3 py-1 bg-white/10 text-white text-sm rounded-lg font-montserrat">
                   Cyber Warriors
                 </div>
                 <div className="flex items-center gap-1 px-3 py-1 bg-[#b10000] text-white text-sm rounded-lg">
-                  <img src={miniCupsIcon} alt="miniCups" className="w-4 h-4" />
-                  <span className="text-sm font-semibold">7983</span>
+                  <img src={miniCupsIcon} alt="miniCups" className="w-3 h-3" />
+                  <span className="text-sm font-semibold font-montserrat">7983</span>
                 </div>
               </div>
             </div>
@@ -129,7 +130,7 @@ const Index = () => {
                         selectedBet === bet ? "bg-red-800" : "bg-transparent"
                       )}
                     >
-                      <img src={diamondsIcon} alt="bet" className="w-6 h-6" />
+                      <img src={whiteDiamondsIcon} alt="bet" className="w-6 h-6" />
                       <span>{bet}</span>
                     </button>
                   ))}

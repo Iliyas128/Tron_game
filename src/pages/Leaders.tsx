@@ -2,14 +2,14 @@ import { useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
-import leaderRewardFull from "@/assets/leader/leaderRewardFull.png";
+import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
 import leaderTopBackgroundReverse from "@/assets/leader/leadersTopBackgroundReverse.svg";
 import leaderUserLogo from "@/assets/leader/leaderUserLogo.svg";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
 import redFrame517 from "@/assets/leader/redFrame538.svg";
-import firstPlaceLogo from "@/assets/firstPlaceLogo.png";
-import secondPlaceLogo from "@/assets/secondPlaceLogo.png";
-import thirdPlaceLogo from "@/assets/thirdPlaceLogo.png";
+import firstPlaceLogo from "@/assets/firstPlaceLogo.svg";
+import secondPlaceLogo from "@/assets/secondPlaceLogo.svg";
+import thirdPlaceLogo from "@/assets/thirdPlaceLogo.svg";
 
 const tabs = ["Участники", "Кланы"];
 
@@ -68,11 +68,11 @@ const Leaders = () => {
           </div>
         </div>
         <div className="flex flex-col leading-tight overflow-hidden">
-          <div className="text-lg font-semibold truncate">{item.title}</div>
+          <div className="text-[14px] font-semibold truncate font-montserrat">{item.title}</div>
         </div>
       </div>
       <div className="flex items-center gap-2 shrink-0">
-        <div className="text-xl font-semibold">{item.score}</div>
+        <div className="text-[14px] font-semibold">{item.score}</div>
         <img src={leaderScoreFire} alt="score fire" className="w-4 h-4" />
       </div>
     </div>
@@ -80,7 +80,7 @@ const Leaders = () => {
 
   return (
     <MobileLayout>
-      <div className="min-h-screen bg-[#0c0709] text-white pb-10">
+      <div className="min-h-screen bg-[#0c0709] text-white pb-10 font-montserrat">
         {/* Hero section */}
         <div className="relative w-full h-[520px] bg-cover bg-center flex flex-col justify-end overflow-visible"
         style={{ backgroundImage: `url(${leaderTopBackground})` }}
@@ -99,13 +99,13 @@ const Leaders = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 flex items-center">
-              <div className="pl-4 pr-2 py-4 max-w-[60%] text-white space-y-2">
-                <h3 className="text-base font-semibold leading-tight">Награды за декабрь</h3>
-                <p className="text-xs text-white/70">
+              <div className="pl-6 pt-7 max-w-[60%] text-white space-y-2">
+                <h3 className="text-base font-semibold leading-[12px] font-montserrat">Награды за декабрь</h3>
+                <p className="text-xs text-white/70 font-montserrat">
                   Сражайся в PVP-сражениях,<br/>побеждай и получай награды.
                 </p>
                 <button
-                  className="mt-3 inline-flex items-center justify-center h-8 px-5 rounded-2xl bg-[#b10000] text-white text-xs font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]"
+                  className="mt-3 inline-flex items-center justify-center h-8 px-5 rounded-xl bg-[#b10000] font-montserrat text-white text-[10px] font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]"
                   onClick={() => setShowRewards(true)}
                 >
                   Посмотреть награды
@@ -122,14 +122,14 @@ const Leaders = () => {
         style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
         >
         <div className="px-4 -mt-9 space-y-3">
-          <h2 className="text-base font-normal">Моё место</h2>
+          <h2 className="font-semibold text-sm font-montserrat">Моё место</h2>
           {clanPlaces.map(renderCard)}
         </div>
 
         {/* Tabs and list */}
         <div className="px-4 mt-10">
           <div className="flex items-center justify-between">
-            <div className="flex gap-4 text-base">
+            <div className="flex gap-4 text-sm">
               {tabs.map((tab) => (
                 <button
                   key={tab}

@@ -12,7 +12,11 @@ export default {
         "2xl": "1400px",
       },
     },
-    extend: {
+    extend: 
+    {fontFamily: {
+      montserrat: ["Montserrat", "sans-serif"],
+      jura: ["Jura", "sans-serif"],
+    },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

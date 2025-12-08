@@ -155,11 +155,11 @@ const Tasks = () => {
       <Header />
 
       <div
-        className="px-4 pb-6 space-y-2 overflow-y-auto"
+        className="px-4 pb-6 space-y-2 overflow-y-auto font-montserrat"
         style={{ maxHeight: "calc(100vh - 90px)" }}
       >
         {/* Hero */}
-        <div className="relative h-[210px] w-full rounded-3xl overflow-hidden mb-6">
+        <div className="relative h-[200px] w-full rounded-3xl overflow-hidden mb-6">
           <img
             src={tasksRobot}
             alt="tasks hero"
@@ -169,7 +169,7 @@ const Tasks = () => {
         </div>
 
         {/* List */}
-        <div className="text-base font-medium">Ежедневные</div>
+        <div className="text-base font-medium font-montserrat">Ежедневные</div>
         <div className="space-y-3">
               {tasks.map((task) => (
             <div
@@ -180,14 +180,14 @@ const Tasks = () => {
               <div className="flex items-center gap-3 overflow-hidden">
                 <img src={task.icon} alt={task.title} className="w-10 h-10 rounded-xl" />
                 <div className="flex flex-col leading-tight overflow-hidden">
-                  <div className="text-sm font-semibold truncate">{task.title}</div>
+                  <div className="text-xs font-semibold truncate">{task.title}</div>
                   {task.type === "action" && renderActionCounts(task)}
                   {task.type === "reward" && renderRewardCounts(task)}
                 </div>
               </div>
 
               <button
-                className={`min-w-[110px] h-10 px-4 rounded-2xl text-sm font-semibold ${buttonTone(
+                className={`min-w-[110px] h-10 px-4 rounded-2xl text-[10px] font-semibold ${buttonTone(
                   task.actionTone
                 )}`}
                   onClick={(e) => {
