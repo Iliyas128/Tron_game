@@ -12,7 +12,7 @@ const Header = ({ onExit }: HeaderProps) => {
   const handleExit = onExit ?? (() => navigate(-1));
 
   return (
-    <header className="flex items-center pt-8 bg-background/80 backdrop-blur-sm sticky z-10 max-w-[375px] mx-auto h-[118px]">
+    <header className="flex items-center pt-8 bg-black sticky z-10 max-w-[435px] mx-auto h-[118px]">
       <div className="flex justify-center flex-1 px-4">
         <img src={logo} alt="TRON" className="h-5 object-contain" />
       </div>

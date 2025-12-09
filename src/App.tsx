@@ -9,6 +9,7 @@ import Friends from "./pages/Friends";
 import Tasks from "./pages/Tasks";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import PreGame from "./pages/PreGame";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/friends" element={<Profile />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/profile" element={<Friends />} />
+          <Route path="/pre-game" element={<PreGame />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

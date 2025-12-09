@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MobileLayout from "@/components/layout/MobileLayout";
 import Header from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import { Gamepad2, Dice1, Target, Users, Flame, Star, ArrowRight } from "lucide-
 import diamondsIcon from "@/assets/diamonds.svg";
 import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
-import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
+import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.svg";
 import frame1 from "@/assets/backgroundInMain.svg";
 import avatar from "@/assets/mainUserLogo.svg";
 import mainBackground from "@/assets/mainBackground.svg";
@@ -18,6 +19,7 @@ import tensentIcon from "@/assets/tensent.svg";
 import gameButton from "@/assets/gameButton.png";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [showBetModal, setShowBetModal] = useState(false);
   const [selectedBet, setSelectedBet] = useState<number | null>(null);
   const potentialWin = selectedBet ? Math.round(selectedBet * 1.2 * 100) / 100 : 0;
@@ -130,7 +132,7 @@ const Index = () => {
                         selectedBet === bet ? "bg-red-800" : "bg-transparent"
                       )}
                     >
-                      <img src={whiteDiamondsIcon} alt="bet" className="w-6 h-6" />
+                      <img src={whiteDiamondsIcon} alt="bet" className="w-4 h-4" />
                       <span>{bet}</span>
                     </button>
                   ))}
@@ -144,6 +146,11 @@ const Index = () => {
                       selectedBet && "bg-[#AF0000]"
                     )}
                     style={{ backgroundImage: `url(${gameButton})` }}
+                    onClick={() => {
+                      if (!selectedBet) return;
+                      setShowBetModal(false);
+                      navigate("/pre-game");
+                    }}
                   >
                     <span className="text-xl font-semibold text-white">Начать сражение</span>
                   </button>
