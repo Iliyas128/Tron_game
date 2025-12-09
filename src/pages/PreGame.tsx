@@ -51,7 +51,7 @@ const PreGame = () => {
 
   useEffect(() => {
     if (phase === "ready") {
-      navigate("/profile");
+      navigate("/game");
     }
   }, [phase, navigate]);  
 

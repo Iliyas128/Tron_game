@@ -1,17 +1,17 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import trophyIcon from "@/assets/trophy.png";
-import friendsIcon from "@/assets/friends.png";
-import homeIcon from "@/assets/home.png";
-import tasksIcon from "@/assets/tasksToDo.png";
-import profileIcon from "@/assets/community.png";
+import trophyIcon from "@/assets/trophy1.png";
+import friendsIcon from "@/assets/friends1.png";
+import homeIcon from "@/assets/home1.png";
+import tasksIcon from "@/assets/tasksToDo1.png";
+import profileIcon from "@/assets/community1.png";
 
 const navItems = [
-  { icon: trophyIcon, path: "/leaders" },
-  { icon: friendsIcon, path: "/friends" },
-  { icon: homeIcon, path: "/" },
-  { icon: tasksIcon, path: "/tasks" },
-  { icon: profileIcon, path: "/profile" },
+  { icon: trophyIcon, path: "/leaders", className: "w-8 h-8" },
+  { icon: friendsIcon, path: "/friends", className: "w-9 h-9" },
+  { icon: homeIcon, path: "/", className: "w-9 h-9" },
+  { icon: tasksIcon, path: "/tasks", className: "w-7 h-7" },
+  { icon: profileIcon, path: "/profile", className: "w-10 h-10" },
 ];
 
 const BottomNavigation = () => {
@@ -36,7 +36,8 @@ const BottomNavigation = () => {
               <img
                 src={item.icon}
                 className={cn(
-                  "transition-all",
+                  item.className ?? "w-7 h-7",
+                  "object-contain transition-all",
                   isActive
                     ? "filter brightness-0 invert"
                     : "filter grayscale brightness-75 opacity-80"
