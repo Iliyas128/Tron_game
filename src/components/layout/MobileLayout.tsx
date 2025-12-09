@@ -12,7 +12,7 @@ const MobileLayout = ({
   children,
   showNav = true,
   scrollable = true,
-  contentPaddingBottomClass = "pb-[120px]",
+  contentPaddingBottomClass = "pb-[10px]",
 }: MobileLayoutProps) => {
   // When scroll is disabled, also lock body to avoid page-level scrolling on mobile.
   useEffect(() => {

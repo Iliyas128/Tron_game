@@ -6,12 +6,13 @@ import { cn } from "@/lib/utils";
 import diamondsIcon from "@/assets/diamonds.svg";
 import tensentIcon from "@/assets/tensentRed.svg";
 import opponentBack from "@/assets/game/gameOpponentBack.svg";
-import background from "@/assets/game/gameMainBackground1.svg";
+import background from "@/assets/game/gameMainBackground.svg";
 import myBack from "@/assets/game/gameMyBack.svg";
 import internetSpeedIcon from "@/assets/game/internetSpeedIcon.svg";
 import terminalIcon from "@/assets/game/terminalIcon.svg";
 import redInternetSpeedIcon from "@/assets/game/redInternetSpeedIcon.svg";
 import redTerminalIcon from "@/assets/game/redTerminalIcon.svg";
+import vector from "@/assets/game/gameTopVector.svg";
 
 type Phase = "search" | "prepare" | "countdown" | "ready";
 
@@ -52,7 +53,7 @@ const PreGame = () => {
     if (phase === "ready") {
       navigate("/profile");
     }
-  }, [phase, navigate]);
+  }, [phase, navigate]);  
 
   const statusText = useMemo(() => {
     if (phase === "search") return "Поиск оппонента...";
@@ -98,7 +99,7 @@ const PreGame = () => {
     iconMetric1?: string;
     iconMetric2?: string;
   }) => (
-    <div className="w-full rounded-3xl overflow-hidden shadow-[0_20px_60px_-25px_rgba(0,0,0,0.6)] bg-gradient-to-r from-[#1c1c1c] to-[#1a1a1a]">
+    <div className="w-full rounded-3xl overflow-hidden">
       <div
         className="flex items-center gap-3 px-4 py-3"
         style={{ backgroundImage: `url(${badge === "me" ? myBack : opponentBack})`, backgroundSize: "cover" }}
@@ -144,21 +145,26 @@ const PreGame = () => {
 
   return (
     <MobileLayout>
-      <Header/>
-      <div className="w-[100vw] h-[78vh] flex justify-center text-white overflow-hidden">
+      <Header bgClassName="bg-black" />
+      <div className="w-[100vw] h-[80vh] flex justify-center text-white overflow-hidden">
         <div
           className="relative w-[100vw] h-[100vh] bg-top bg-no-repeat"
           style={{
             backgroundImage: `url(${background})`,
             backgroundSize: "cover",
             height: "calc(100vw * 1.628)", // 635 / 390 ≈ 1.628
-            maxHeight: "715px",
+            maxHeight: "720px",
             minHeight: "571px",
           }}
         >
+          <div className="absolute inset-0 bg-white/8 pointer-events-none" />
           <div className="absolute inset-1 overflow-auto pt-2 px-4 pb-6">
           {/* Balances row */}
-          <div className="flex items-center justify-center gap-4 mb-4 mt-[1vh]">
+          <div className="flex items-center justify-center justify-between gap-4 mb-4 mt-[1vh]">
+            <div className="">
+              <img src={vector} alt="vector" className="w-15 h-15" loading="lazy" />
+            </div>
+            <div className="flex items-center justify-center gap-3">
             <div className="flex items-center gap-1 text-sm">
               <img src={diamondsIcon} alt="d" className="w-5 h-5" loading="lazy" />
               <span>2</span>
@@ -166,6 +172,10 @@ const PreGame = () => {
             <div className="flex items-center gap-1 text-sm">
               <img src={tensentIcon} alt="t" className="w-5 h-5" loading="lazy" />
               <span>3.2</span>
+            </div>
+            </div>
+            <div className="">
+              <img src={vector} alt="vector" className="w-15 h-15" loading="lazy" />
             </div>
           </div>
 
@@ -206,6 +216,10 @@ const PreGame = () => {
               за развитие своего клана
             </p>
           </div>
+
+          <div className="absolute bottom-8 right-4">
+              <img src={vector} alt="vector" className="w-15 h-15" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
