@@ -30,7 +30,7 @@ const Index = () => {
         className="relative min-h-screen bg-cover bg-no-repeat pb-28"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/42 pointer-events-none" />
         <Header />
 
         <div className="px-4">
@@ -57,9 +57,9 @@ const Index = () => {
               <h1 className="text-white text-xl leading-[22px] font-bold leading-tight truncate font-montserrat">
                 Name Username
               </h1>
-              <p className="text-white/70 text-sm leading-none font-montserrat">@user_name</p>
+              <p className="text-white text-sm leading-none font-montserrat">@user_name</p>
               <div className="flex items-center gap-3 mt-2">
-                <div className="px-3 py-1 bg-white/10 text-white/100 text-sm font-semibold rounded-lg font-montserrat">
+                <div className="px-3 py-1 bg-white/10 text-white text-sm font-medium rounded-lg font-montserrat">
                   Cyber Warriors
                 </div>
                 <div className="flex items-center gap-1 px-3 py-1 bg-[#b10000] text-white text-sm rounded-lg">
