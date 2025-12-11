@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,25 +15,32 @@ import Game from "./pages/Game";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/leaders" element={<Leaders />} />
-          <Route path="/friends" element={<Profile />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/profile" element={<Friends />} />
-          <Route path="/pre-game" element={<PreGame />} />
-          <Route path="/game" element={<Game />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    const tg = (window as any)?.Telegram?.WebApp;
+    tg?.disableVerticalSwipes?.();
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/leaders" element={<Leaders />} />
+            <Route path="/friends" element={<Profile />} />
+            <Route path="/tasks" element={<Tasks />} />
+            <Route path="/profile" element={<Friends />} />
+            <Route path="/pre-game" element={<PreGame />} />
+            <Route path="/game" element={<Game />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
