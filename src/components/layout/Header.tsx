@@ -15,7 +15,7 @@ const Header = ({ onExit, bgClassName }: HeaderProps) => {
   return (
     <header
       className={`flex items-center pt-8 sticky z-10 max-w-[435px] mx-auto h-[118px] ${
-        bgClassName ?? "bg-[#080B12]"
+        bgClassName ?? "bg-[#0d0d0d]"
       }`}
     >
       <div className="flex justify-center flex-1 px-4">

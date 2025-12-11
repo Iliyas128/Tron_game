@@ -6,6 +6,7 @@ interface MobileLayoutProps {
   showNav?: boolean;
   scrollable?: boolean;
   contentPaddingBottomClass?: string;
+  fullWidth?: boolean;
 }
 
 const MobileLayout = ({
@@ -13,6 +14,7 @@ const MobileLayout = ({
   showNav = true,
   scrollable = true,
   contentPaddingBottomClass = "pb-[10px]",
+  fullWidth = false,
 }: MobileLayoutProps) => {
   // When scroll is disabled, also lock body to avoid page-level scrolling on mobile.
   useEffect(() => {
@@ -27,7 +29,9 @@ const MobileLayout = ({
 
   const containerClasses = scrollable
     ? "bg-background flex flex-col w-full mx-auto relative min-h-screen"
-    : "bg-background flex flex-col w-full max-w-[390px] mx-auto relative overflow-hidden";
+    : fullWidth
+      ? "bg-background flex flex-col w-full relative overflow-hidden"
+      : "bg-background flex flex-col w-full max-w-[390px] mx-auto relative overflow-hidden";
   const contentClasses = scrollable
     ? `flex-1 overflow-auto ${contentPaddingBottomClass}`
     : `flex-1 overflow-hidden ${contentPaddingBottomClass}`;
@@ -39,7 +43,9 @@ const MobileLayout = ({
       style={
         scrollable
           ? undefined
-          : { height: "844px", maxHeight: "844px" }
+          : fullWidth
+            ? undefined
+            : { height: "844px", maxHeight: "844px" }
       }
     >
       <div className={contentClasses}>
