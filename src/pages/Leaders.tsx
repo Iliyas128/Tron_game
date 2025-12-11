@@ -58,7 +58,7 @@ const Leaders = () => {
   const renderCard = (item: { id: number; title: string; subtitle: string; score: number; badge: string }) => (
     <div
       key={item.id}
-      className="h-[60px] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 flex items-center justify-between"
+      className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
     >
       <div className="flex items-center gap-3 overflow-hidden">
         <div className="relative">
@@ -80,18 +80,22 @@ const Leaders = () => {
 
   return (
     <MobileLayout>
-      <div className="min-h-screen bg-[#0c0709] text-white pb-10 font-montserrat">
+      <div className="min-h-[100svh] bg-[#0c0709] text-white pb-10 font-montserrat">
         {/* Hero section */}
-        <div className="relative w-full h-[520px] bg-cover bg-center flex flex-col justify-end overflow-visible"
-        style={{ backgroundImage: `url(${leaderTopBackground})` }}
+        <div
+          className="relative w-full min-h-[60vh] max-h-[540px] bg-cover bg-center flex flex-col justify-end overflow-visible"
+          style={{ backgroundImage: `url(${leaderTopBackground})` }}
         >
           <img
             src={leaderTopRobot}
             alt="leader robot"
-            className="absolute -top-6 left-1/2 -translate-x-1/2 h-[360px] object-contain pointer-events-none"
+            className="absolute -top-[4vh] left-1/2 -translate-x-1/2 h-[44vh] max-h-[360px] min-h-[260px] object-contain pointer-events-none"
           />
           {/* Reward banner */}
-        <div className="-mt-10 w-full px-4 pb-10">
+        <div
+          className="w-full px-4 pb-14"
+          style={{ marginTop: "clamp(-48px, -6vh, -28px)" }}
+        >
           <div className="relative w-full overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]">
             <img
               src={leaderRewardFull}
@@ -99,13 +103,15 @@ const Leaders = () => {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 flex items-center">
-              <div className="pl-6 pt-7 max-w-[60%] text-white space-y-2">
-                <h3 className="text-base font-semibold leading-[12px] font-montserrat">Награды за декабрь</h3>
-                <p className="text-xs text-white/70 font-montserrat">
+              <div className="pl-6 pt-7 max-w-[62%] text-white space-y-2">
+                <h3 className="font-semibold leading-[1.1] font-montserrat text-[clamp(14px,3.8vw,16px)]">
+                  Награды за декабрь
+                </h3>
+                <p className="text-white/70 font-montserrat leading-snug text-[clamp(11px,3.2vw,13px)]">
                   Сражайся в PVP-сражениях,<br/>побеждай и получай награды.
                 </p>
                 <button
-                  className="mt-3 inline-flex items-center justify-center h-8 px-5 rounded-xl bg-[#b10000] font-montserrat text-white text-[10px] font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]"
+                  className="mt-3 inline-flex items-center justify-center h-[34px] px-5 rounded-xl bg-[#b10000] font-montserrat text-white font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)] text-[clamp(10px,2.8vw,12px)]"
                   onClick={() => setShowRewards(true)}
                 >
                   Посмотреть награды
@@ -118,10 +124,14 @@ const Leaders = () => {
         </div>
 
         {/* Clan place */}
-        <div className="relative w-full h-[520px] bg-cover bg-center flex flex-col overflow-visible"
-        style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
+        <div
+          className="relative w-full min-h-[58vh] max-h-[540px] bg-cover bg-center flex flex-col overflow-visible pb-12 pt-6"
+          style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
         >
-        <div className="px-4 -mt-9 space-y-3">
+        <div
+          className="px-4 space-y-3"
+          style={{ marginTop: "clamp(-36px, -4vh, -16px)" }}
+        >
           <h2 className="font-semibold text-sm font-montserrat">Моё место</h2>
           {clanPlaces.map(renderCard)}
         </div>
@@ -192,9 +202,9 @@ const Leaders = () => {
               >
                 ×
               </button>
-              <div className="px-5 pt-8 space-y-4">
-                <h3 className="text-2xl font-normal text-white">Список наград</h3>
-                <div className="space-y-3">
+              <div className="relative px-5 pt-9 pb-5 space-y-4">
+                <h3 className="text-[24px] font-jura font-bold ml-2 text-white">Список наград</h3>
+                <div className="space-y-3 font-montserrat">
                   {[
                     { label: "1", icon: firstPlaceLogo },
                     { label: "2", icon: secondPlaceLogo },
@@ -214,8 +224,8 @@ const Leaders = () => {
                         ) : null}
                         <span className="text-base font-semibold">{item.label}</span>
                       </div>
-                      <div className="flex-1 text-right text-sm text-gray-400">
-                        Нажми «Подписаться» внизу экрана.
+                      <div className="flex-1 text-right font-montserrat text-[12px] text-gray-400">
+                        Нажми «Подписаться» <br /> внизу экрана.
                       </div>
                     </div>
                   ))}
