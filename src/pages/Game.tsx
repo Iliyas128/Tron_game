@@ -132,7 +132,7 @@ const Game = () => {
             </div>
           </div>
 
-          <div className="w-full max-w-[360px] mx-auto space-y-4">
+          <div className="w-full max-w-[560px] mx-auto space-y-4">
             <div className="relative w-full">
               <img src={scoreboard} alt="Code slots" className="w-full h-auto object-contain" />
               <div className="absolute inset-0 flex items-center justify-between px-8">
@@ -150,13 +150,13 @@ const Game = () => {
             <p className="text-center text-[12px] font-semibold font-montserrat text-white/90">Подберите системный код</p>
 
             <div className="flex flex-col items-center gap-4">
-              <div className="grid grid-cols-4 gap-4 w-full max-w-[360px]">
+              <div className="grid grid-cols-4 gap-4 w-full max-w-[520px]">
                 {keypad.slice(0, 4).map((item) => (
                   <button key={item.value} className="relative h-[78px] w-full" onClick={() => handleKeyPress(item.value)}>
                     <SvgElementButton
                       width={item.wide ? 200 : 96}
                       height={78}
-                      borderColor="#3f3f3f"
+                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
                       backgroundColor="#1b1b1b"
                       className="w-full h-full"
                     />
@@ -167,13 +167,13 @@ const Game = () => {
                 ))}
               </div>
 
-              <div className="grid grid-cols-4 gap-4 w-full max-w-[360px]">
+              <div className="grid grid-cols-4 gap-4 w-full max-w-[520px]">
                 {keypad.slice(4, 8).map((item) => (
                   <button key={item.value} className="relative h-[78px] w-full" onClick={() => handleKeyPress(item.value)}>
                     <SvgElementButton
                       width={item.wide ? 200 : 96}
                       height={78}
-                      borderColor="#3f3f3f"
+                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
                       backgroundColor="#1b1b1b"
                       className="w-full h-full"
                     />
@@ -184,7 +184,7 @@ const Game = () => {
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 w-full max-w-[360px]">
+              <div className="grid grid-cols-3 gap-4 w-full max-w-[520px]">
                 {keypad.slice(8).map((item) => (
                   <button
                     key={item.value}
@@ -194,7 +194,7 @@ const Game = () => {
                     <SvgElementButton
                       width={item.wide ? 220 : 96}
                       height={78}
-                      borderColor="#3f3f3f"
+                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
                       backgroundColor="#1b1b1b"
                       className="w-full h-full"
                     />
