@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import { cn } from "@/lib/utils";
 import background from "@/assets/match/gameBackground4x.png";
-import scoreboard from "@/assets/match/scoreboard.png";
-import diamondsIcon from "@/assets/diamonds.svg";
-import goldsIcon from "@/assets/golds.svg";
+import scoreboard from "@/assets/match/mainScoreboard.png";
+import diamondsIcon from "@/assets/fire.svg";
+import goldsIcon from "@/assets/game/redInternetSpeedIcon.svg";
 import SvgElementButton from "@/components/svgElementButton";
+import RoundedRectSvg from "@/components/layout/numberButtons";
 
 const keypad = [
   { value: "1" },
@@ -66,7 +67,7 @@ const Game = () => {
           className="absolute inset-0 bg-bottom bg-no-repeat bg-cover"
           style={{ backgroundImage: `url(${background})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/30 to-black/70" />
 
         <div className="relative z-10 px-4 pb-8 pt-5 flex flex-col items-center gap-6">
           <div className="w-full flex items-start gap-3">
@@ -90,7 +91,7 @@ const Game = () => {
                       <img
                         src={goldsIcon}
                         alt="Golds"
-                        className="w-4 h-4"
+                        className="w-3 h-3"
                         style={{ filter: "invert(9%) sepia(85%) saturate(7489%) hue-rotate(1deg) brightness(91%) contrast(103%)" }}
                       />
                       <span>75</span>
@@ -132,16 +133,16 @@ const Game = () => {
             </div>
           </div>
 
-          <div className="w-full max-w-[560px] mx-auto space-y-4">
+          <div className="w-full max-w-[245px] mx-auto space-y-4">
             <div className="relative w-full">
               <img src={scoreboard} alt="Code slots" className="w-full h-auto object-contain" />
-              <div className="absolute inset-0 flex items-center justify-between px-8">
+              <div className="absolute inset-0 flex items-center justify-between px-7">
                 {[0, 1, 2].map((idx) => (
                   <div
                     key={idx}
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-3xl font-semibold font-montserrat text-white/90"
+                    className="w-12 h-12 rounded-full flex items-center justify-center text-2xl font-semibold font-montserrat text-white/90"
                   >
-                  
+                    
                   </div>
                 ))}
               </div>
@@ -149,60 +150,61 @@ const Game = () => {
 
             <p className="text-center text-[12px] font-semibold font-montserrat text-white/90">Подберите системный код</p>
 
-            <div className="flex flex-col items-center gap-4">
-              <div className="grid grid-cols-4 gap-4 w-full max-w-[520px]">
+            <div className="flex flex-col items-center gap-3.5">
+              <div className="grid grid-cols-4 gap-3 w-[252px]">
                 {keypad.slice(0, 4).map((item) => (
-                  <button key={item.value} className="relative h-[78px] w-full" onClick={() => handleKeyPress(item.value)}>
-                    <SvgElementButton
-                      width={item.wide ? 200 : 96}
-                      height={78}
-                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
-                      backgroundColor="#1b1b1b"
-                      className="w-full h-full"
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-2xl font-semibold font-montserrat">
-                      {item.value}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-4 gap-4 w-full max-w-[520px]">
-                {keypad.slice(4, 8).map((item) => (
-                  <button key={item.value} className="relative h-[78px] w-full" onClick={() => handleKeyPress(item.value)}>
-                    <SvgElementButton
-                      width={item.wide ? 200 : 96}
-                      height={78}
-                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
-                      backgroundColor="#1b1b1b"
-                      className="w-full h-full"
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-2xl font-semibold font-montserrat">
-                      {item.value}
-                    </span>
-                  </button>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-3 gap-4 w-full max-w-[520px]">
-                {keypad.slice(8).map((item) => (
-                  <button
+                  <RoundedRectSvg
                     key={item.value}
-                    className={cn("relative h-[78px] w-full", item.wide ? "col-span-2" : "")}
+                    width={60}
+                    height={56}
+                    label={item.value}
+                    backgroundColor="#1b1b1b"
+                    borderStartColor="#4a4a4a"
+                    borderEndColor="#4a4a4a"
+                    fontSize={22}
                     onClick={() => handleKeyPress(item.value)}
-                  >
-                    <SvgElementButton
-                      width={item.wide ? 220 : 96}
-                      height={78}
-                      borderColor={isHighlighted(item.value) ? "#AF0000" : "#3f3f3f"}
-                      backgroundColor="#1b1b1b"
-                      className="w-full h-full"
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-2xl font-semibold font-montserrat">
-                      {item.value}
-                    </span>
-                  </button>
+                  />
                 ))}
+              </div>
+
+              <div className="grid grid-cols-4 gap-3 w-[252px]">
+                {keypad.slice(4, 8).map((item) => (
+                  <RoundedRectSvg
+                    key={item.value}
+                    width={60}
+                    height={56}
+                    label={item.value}
+                    backgroundColor="#1b1b1b"
+                    borderStartColor="#4a4a4a"
+                    borderEndColor="#4a4a4a"
+                    fontSize={22}
+                    onClick={() => handleKeyPress(item.value)}
+                  />
+                ))}
+              </div>
+
+              <div className="grid grid-cols-4 gap-3 w-[252px]">
+                <RoundedRectSvg
+                  width={60}
+                  height={56}
+                  label="9"
+                  backgroundColor="#1b1b1b"
+                  borderStartColor="#4a4a4a"
+                  borderEndColor="#4a4a4a"
+                  fontSize={22}
+                  onClick={() => handleKeyPress("9")}
+                />
+                <RoundedRectSvg
+                  width={186}
+                  height={56}
+                  label="0"
+                  backgroundColor="#1b1b1b"
+                  borderStartColor="#4a4a4a"
+                  borderEndColor="#4a4a4a"
+                  fontSize={22}
+                  className="col-span-2"
+                  onClick={() => handleKeyPress("0")}
+                />
               </div>
             </div>
           </div>
