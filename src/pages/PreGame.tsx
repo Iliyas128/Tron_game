@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import diamondsIcon from "@/assets/diamonds.svg";
 import tensentIcon from "@/assets/tensentRed.svg";
 import opponentBack from "@/assets/game/gameOpponentBack.svg";
-import background from "@/assets/game/gameMainBackground.svg";
+import background from "@/assets/game/gameMainBackground.png";
 import myBack from "@/assets/game/gameMyBack.svg";
 import internetSpeedIcon from "@/assets/game/internetSpeedIcon.svg";
 import terminalIcon from "@/assets/game/terminalIcon.svg";

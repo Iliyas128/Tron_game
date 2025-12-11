@@ -8,7 +8,7 @@ import { Gamepad2, Dice1, Target, Users, Flame, Star, ArrowRight } from "lucide-
 import diamondsIcon from "@/assets/diamonds.svg";
 import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
-import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.svg";
+import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
 import frame1 from "@/assets/backgroundInMain.svg";
 import avatar from "@/assets/mainUserLogo.svg";
 import mainBackground from "@/assets/mainBackground.svg";
@@ -27,9 +27,10 @@ const Index = () => {
   return (
     <MobileLayout contentPaddingBottomClass="pb-0">
       <div
-        className="min-h-screen bg-cover bg-no-repeat pb-28"
+        className="relative min-h-screen bg-cover bg-no-repeat pb-28"
         style={{ backgroundImage: `url(${background})` }}
       >
+        <div className="absolute inset-0 bg-black/35 pointer-events-none" />
         <Header />
 
         <div className="px-4">
@@ -58,7 +59,7 @@ const Index = () => {
               </h1>
               <p className="text-white/70 text-sm leading-none font-montserrat">@user_name</p>
               <div className="flex items-center gap-3 mt-2">
-                <div className="px-3 py-1 bg-white/10 text-white text-sm rounded-lg font-montserrat">
+                <div className="px-3 py-1 bg-white/10 text-white/100 text-sm font-semibold rounded-lg font-montserrat">
                   Cyber Warriors
                 </div>
                 <div className="flex items-center gap-1 px-3 py-1 bg-[#b10000] text-white text-sm rounded-lg">
@@ -70,7 +71,7 @@ const Index = () => {
           </div>
 
           {/* Main hero */}
-          <div className="relative rounded-3xl overflow-hidden mt-4">
+          <div className="relative rounded-3xl overflow-hidden mt-4 -mx-2">
             <img
               src={mainBackground}
               alt="Main background"
@@ -132,7 +133,16 @@ const Index = () => {
                         selectedBet === bet ? "bg-red-800" : "bg-transparent"
                       )}
                     >
-                      <img src={whiteDiamondsIcon} alt="bet" className="w-4 h-4" />
+                      <img
+                        src={whiteDiamondsIcon}
+                        alt="bet"
+                        className={cn(
+                          "w-5 h-5 transition",
+                          selectedBet === bet
+                            ? "filter brightness-0 invert"
+                            : "filter grayscale brightness-75 opacity-80"
+                        )}
+                      />
                       <span>{bet}</span>
                     </button>
                   ))}
