@@ -18,7 +18,7 @@ const BottomNavigation = () => {
   const location = useLocation();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-[#0A0A0A] w-full h-[104px]">
+    <nav className="fixed bottom-0 left-0 right-0 bg-[#0A0A0A] w-full h-[104px] z-50">
       <div className="flex justify-around items-center h-full px-2">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
