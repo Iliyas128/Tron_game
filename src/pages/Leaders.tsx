@@ -3,7 +3,6 @@ import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
-import leaderTopBackgroundReverse from "@/assets/leader/redDots.svg";
 import leaderUserLogo from "@/assets/mainUserLogo.svg";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
 import redFrame517 from "@/assets/leader/redFrame538.svg";
@@ -50,6 +49,8 @@ const participantsList = [
   },
 ];
 
+const leaderTopBackgroundReverse = "/leader/redDots.svg";
+
 const Leaders = () => {
   const [activeTab, setActiveTab] = useState("Кланы");
   const [activePeriod, setActivePeriod] = useState<"Месяц" | "Всё время">("Месяц");
@@ -58,7 +59,6 @@ const Leaders = () => {
   const renderCard = (item: { id: number; title: string; subtitle: string; score: number; badge: string }) => (
     <div
       key={item.id}
-      className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
       className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
     >
       <div className="flex items-center gap-3 overflow-hidden">
