@@ -94,7 +94,7 @@ const Leaders = () => {
           />
           {/* Reward banner */}
           <div
-            className="w-full px-4 pb-[clamp(44px,6vw,80px)]"
+            className="w-full px-4 pb-[clamp(48px,8vw,88px)]"
             style={{ 
                marginTop: "clamp(318px, 6vh, 64px)"
             }}
@@ -144,10 +144,10 @@ const Leaders = () => {
         </div>
 
         {/* Clan place */}
-        <div className="relative w-full h-[calc(100svh-540px)] bg-black/50 bg-cover bg-center flex flex-col overflow-visible"
+        <div className="relative w-full h-[calc(100svh-540px)] bg-black/30 bg-cover bg-center flex flex-col overflow-visible"
         style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
         >
-        <div className="px-[clamp(12px,4vw,20px)] -mt-[clamp(20px,6vw,36px)] space-y-[clamp(8px,2vw,14px)]">
+        <div className="px-[clamp(12px,4vw,20px)] -mt-[clamp(10px,5vw,28px)] space-y-[clamp(10px,4vw,18px)]">
           <h2 className="font-semibold text-sm font-montserrat">Моё место</h2>
           {clanPlaces.map(renderCard)}
         </div>
@@ -156,13 +156,15 @@ const Leaders = () => {
         <div className="px-[clamp(12px,4vw,20px)] mt-[clamp(24px,6vw,48px)]">
 
           <div className="flex items-center justify-between">
-            <div className="flex gap-4 text-sm">
+            <div className="flex gap-4 font-montserrat">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={` transition-colors ${
-                    activeTab === tab ? "text-white border-b-2 border-white" : "text-white/50"
+                    activeTab === tab
+                      ? "text-white border-b-2 border-white text-[16px]"
+                      : "text-white/50 text-[12px]"
                   }`}
                 >
                   {tab}

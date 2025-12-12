@@ -1,7 +1,6 @@
 import MobileLayout from "@/components/layout/MobileLayout";
 import friendsRobot from "@/assets/friends/friendsRobot.svg";
 import friendsWhiteGold from "@/assets/friends/friendsWhiteGold.svg";
-import friendsBackground from "@/assets/friends/friendsBackground.svg";
 import goldsIcon from "@/assets/golds.svg";
 import mainUserLogo from "@/assets/mainUserLogo.svg";
 import friendsCopyLogo from "@/assets/friends/friendsCopyLogo.svg";
@@ -24,6 +23,8 @@ const friendsList = [
   { id: 11, name: "Name Surname", amount: 0.44 },
   { id: 12, name: "Name Surname", amount: 0.00012 },
 ];
+
+const friendsBackground = "/friends/friendsBackground.svg";
 
 const Friends = () => {
   return (
@@ -77,7 +78,7 @@ const Friends = () => {
 
           {/* Collect */}
           {availableAmount > 0 && (
-            <button className="w-full h-14 rounded-2xl bg-[#b10000] text-white text-lg font-semibold flex items-center justify-center gap-3 shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]">
+            <button className="w-full h-14 rounded-2xl bg-[#AF0000] text-white text-lg font-semibold flex items-center justify-center gap-3">
               <img src={goldsIcon} alt="gold" className="w-5 h-5" />
               <span className="flex gap-2 items-center">
                 <p className="text-base font-montserrat">Собрать</p>
@@ -92,7 +93,7 @@ const Friends = () => {
           {/* Friends list header */}
           <div className="flex items-center gap-2">
             <div className="text-base font-semibold font-montserrat">Список друзей</div>
-            <div className="text-sm text-white/80">{friendsList.length}</div>
+            <div className="text-sm font-montserrat text-white/80">{friendsList.length}</div>
           </div>
 
           {/* Friends list */}
@@ -124,7 +125,7 @@ const Friends = () => {
       {/* Bottom action bar above navigation */}
       <div className="fixed bottom-[104px] left-0 right-0 z-20">
         <div className="h-[58px] bg-[#0A0A0A] flex items-center gap-3 px-3 shadow-[0_12px_36px_-12px_rgba(0,0,0,0.7)]">
-          <button className="flex-1 h-12 rounded-2xl bg-[#b10000] text-white text-lg font-semibold flex items-center justify-center shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]">
+          <button className="flex-1 h-12 rounded-2xl bg-[#AF0000] text-white text-lg font-semibold flex items-center justify-center">
             Пригласить друга
           </button>
           <button className="w-14 h-14 rounded-2xl flex items-center justify-center">
