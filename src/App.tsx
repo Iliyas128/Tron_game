@@ -76,22 +76,7 @@ const App = () => {
     } else {
       console.warn('Telegram WebApp not found - app may not be running in Telegram');
     }
-
-    // Дополнительная защита от закрытия
-    const preventClose = (e: TouchEvent) => {
-      if (window.scrollY === 0) {
-        const touch = e.touches[0];
-        if (touch && touch.clientY > 0) {
-          e.preventDefault();
-        }
-      }
-    };
-
-    document.addEventListener('touchmove', preventClose, { passive: false });
-
-    return () => {
-      document.removeEventListener('touchmove', preventClose);
-    };
+    // Никаких глобальных блокировок скролла — полагаемся на disableVerticalSwipes
   }, []);
 
   return (
