@@ -3,18 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
-
-declare global {
-  interface Window {
-    Telegram?: {
-      WebApp?: {
-        expand: () => void;
-        enableClosingConfirmation: () => void;
-        disableVerticalSwipes: () => void;
-      };
-    };
-  }
-}
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Leaders from "./pages/Leaders";
@@ -29,12 +17,47 @@ const queryClient = new QueryClient();
 
 const App = () => {
   useEffect(() => {
-    // Расширяем WebApp на весь экран и выключаем вертикальные свайпы
-    if (window.Telegram?.WebApp) {
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.enableClosingConfirmation();
-      window.Telegram.WebApp.disableVerticalSwipes();
+    const tg = window.Telegram?.WebApp;
+    
+    console.log('Checking Telegram WebApp...', tg);
+    
+    if (tg) {
+      console.log('Telegram WebApp found!');
+      
+      tg.ready();
+      console.log('ready() called');
+      
+      tg.expand();
+      console.log('expand() called');
+      
+      if (typeof tg.disableVerticalSwipes === 'function') {
+        tg.disableVerticalSwipes();
+        console.log('disableVerticalSwipes() called');
+      } else {
+        console.warn('disableVerticalSwipes() not available');
+      }
+      
+      tg.enableClosingConfirmation();
+      console.log('enableClosingConfirmation() called');
+    } else {
+      console.warn('Telegram WebApp not found - app may not be running in Telegram');
     }
+
+    // Дополнительная защита от закрытия
+    const preventClose = (e: TouchEvent) => {
+      if (window.scrollY === 0) {
+        const touch = e.touches[0];
+        if (touch && touch.clientY > 0) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    document.addEventListener('touchmove', preventClose, { passive: false });
+
+    return () => {
+      document.removeEventListener('touchmove', preventClose);
+    };
   }, []);
 
   return (
