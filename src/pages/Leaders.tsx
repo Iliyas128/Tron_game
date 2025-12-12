@@ -3,7 +3,7 @@ import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
-import leaderTopBackgroundReverse from "@/assets/leader/leadersTopBackgroundReverse.svg";
+import leaderTopBackgroundReverse from "@/assets/leader/redDots.svg";
 import leaderUserLogo from "@/assets/mainUserLogo.svg";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
 import redFrame517 from "@/assets/leader/redFrame538.svg";
@@ -58,7 +58,7 @@ const Leaders = () => {
   const renderCard = (item: { id: number; title: string; subtitle: string; score: number; badge: string }) => (
     <div
       key={item.id}
-      className="h-[60px] rounded-2xl border border-white/10 bg-white/5 px-3 py-2 flex items-center justify-between"
+      className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
     >
       <div className="flex items-center gap-3 overflow-hidden">
         <div className="relative">
@@ -82,8 +82,9 @@ const Leaders = () => {
     <MobileLayout>
       <div className="min-h-screen bg-[#0c0709] text-white pb-10 font-montserrat">
         {/* Hero section */}
-        <div className="relative w-full h-[520px] bg-cover bg-center flex flex-col justify-end overflow-visible"
-        style={{ backgroundImage: `url(${leaderTopBackground})` }}
+        <div
+          className="relative w-full min-h-[58vh] max-h-[540px] bg-cover bg-center flex flex-col justify-end overflow-visible"
+          style={{ backgroundImage: `url(${leaderTopBackground})` }}
         >
           <img
             src={leaderTopRobot}
@@ -91,43 +92,68 @@ const Leaders = () => {
             className="absolute -top-6 left-1/2 -translate-x-1/2 h-[360px] object-contain pointer-events-none"
           />
           {/* Reward banner */}
-        <div className="-mt-10 w-full px-4 pb-10">
-          <div className="relative w-full overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]">
-            <img
-              src={leaderRewardFull}
-              alt="leader rewards"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 flex items-center">
-              <div className="pl-6 pt-7 max-w-[60%] text-white space-y-2">
-                <h3 className="text-base font-semibold leading-[12px] font-montserrat">Награды за декабрь</h3>
-                <p className="text-xs text-white/70 font-montserrat">
-                  Сражайся в PVP-сражениях,<br/>побеждай и получай награды.
-                </p>
-                <button
-                  className="mt-3 inline-flex items-center justify-center h-8 px-5 rounded-xl bg-[#b10000] font-montserrat text-white text-[10px] font-semibold shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]"
-                  onClick={() => setShowRewards(true)}
+          <div
+            className="w-full px-4 pb-[clamp(44px,6vw,80px)]"
+            style={{ 
+               marginTop: "clamp(318px, 6vh, 64px)"
+            }}
+          >
+            <div className="relative w-full aspect-[345/138] overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]">
+              <img
+                src={leaderRewardFull}
+                alt="leader rewards"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 flex items-center">
+                <div
+                  className="
+                    text-white space-y-[clamp(4px,1.5vw,10px)]
+                    pl-[clamp(12px,6vw,26px)]
+                    pt-[clamp(12px,6vw,30px)]
+                  "
                 >
-                  Посмотреть награды
-                </button>
+                  <h3 className="font-montserrat font-semibold leading-[1.1] text-[clamp(12px,3.3vw,16px)]">
+                    Награды за декабрь
+                  </h3>
+
+                  <p className="font-montserrat text-white/70 text-[clamp(10px,3vw,14px)] leading-snug">
+                    Сражайся в PVP-сражениях,<br/>побеждай и получай награды.
+                  </p>
+
+                  <button
+                    className="
+                      mt-[clamp(6px,2vw,12px)]
+                      inline-flex items-center justify-center
+                      h-[clamp(26px,7vw,32px)]
+                      px-[clamp(14px,5vw,20px)]
+                      rounded-xl bg-[#b10000]
+                      font-montserrat text-white font-semibold
+                      text-[clamp(9px,2.4vw,11px)]
+                      shadow-[0_12px_36px_-12px_rgba(177,0,0,0.8)]
+                    "
+                    onClick={() => setShowRewards(true)}
+                  >
+                    Посмотреть награды
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          
-        </div>
         </div>
 
         {/* Clan place */}
-        <div className="relative w-full h-[520px] bg-cover bg-center flex flex-col overflow-visible"
+        <div className="relative w-full h-[calc(100svh-540px)] bg-black/50 bg-cover bg-center flex flex-col overflow-visible"
         style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
         >
-        <div className="px-4 -mt-9 space-y-3">
+        <div className="px-[clamp(12px,4vw,20px)] -mt-[clamp(20px,6vw,36px)] space-y-[clamp(8px,2vw,14px)]">
           <h2 className="font-semibold text-sm font-montserrat">Моё место</h2>
           {clanPlaces.map(renderCard)}
         </div>
 
         {/* Tabs and list */}
-        <div className="px-4 mt-10">
+        <div className="px-[clamp(12px,4vw,20px)] mt-[clamp(24px,6vw,48px)]">
+
           <div className="flex items-center justify-between">
             <div className="flex gap-4 text-sm">
               {tabs.map((tab) => (
@@ -193,8 +219,8 @@ const Leaders = () => {
                 ×
               </button>
               <div className="px-5 pt-8 space-y-4">
-                <h3 className="text-2xl font-normal text-white">Список наград</h3>
-                <div className="space-y-3">
+                <h3 className="text-2xl font-bold font-jura text-white">Список наград</h3>
+                <div className="space-y-3 font-montserrat">
                   {[
                     { label: "1", icon: firstPlaceLogo },
                     { label: "2", icon: secondPlaceLogo },
@@ -214,7 +240,7 @@ const Leaders = () => {
                         ) : null}
                         <span className="text-base font-semibold">{item.label}</span>
                       </div>
-                      <div className="flex-1 text-right text-sm text-gray-400">
+                      <div className="flex-1 font-montserrat text-right text-sm text-gray-400">
                         Нажми «Подписаться» внизу экрана.
                       </div>
                     </div>
