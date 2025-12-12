@@ -59,6 +59,7 @@ const Leaders = () => {
     <div
       key={item.id}
       className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
+      className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-3 py-2 flex items-center justify-between"
     >
       <div className="flex items-center gap-3 overflow-hidden">
         <div className="relative">
@@ -80,7 +81,7 @@ const Leaders = () => {
 
   return (
     <MobileLayout>
-      <div className="min-h-screen bg-[#0c0709] text-white pb-10 font-montserrat">
+      <div className="min-h-[100svh] bg-[#0c0709] text-white pb-10 font-montserrat">
         {/* Hero section */}
         <div
           className="relative w-full min-h-[58vh] max-h-[540px] bg-cover bg-center flex flex-col justify-end overflow-visible"
@@ -89,7 +90,7 @@ const Leaders = () => {
           <img
             src={leaderTopRobot}
             alt="leader robot"
-            className="absolute -top-6 left-1/2 -translate-x-1/2 h-[360px] object-contain pointer-events-none"
+            className="absolute -top-[4vh] left-1/2 -translate-x-1/2 h-[44vh] max-h-[360px] min-h-[260px] object-contain pointer-events-none"
           />
           {/* Reward banner */}
           <div
