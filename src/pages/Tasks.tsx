@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import Header from "@/components/layout/Header";
 import tasksRobot from "@/assets/tasks/tasksRobot.png";
@@ -114,6 +114,15 @@ const sponsorTasks: TaskItem[] = [
 
 const Tasks = () => {
   const [modalTask, setModalTask] = useState<TaskItem | null>(null);
+
+  useEffect(() => {
+    if (modalTask) {
+      document.body.classList.add("nav-hidden");
+    } else {
+      document.body.classList.remove("nav-hidden");
+    }
+    return () => document.body.classList.remove("nav-hidden");
+  }, [modalTask]);
 
   const renderActionCounts = (task: TaskItem) => (
     <div className="flex items-center gap-3 text-sm text-white/80">

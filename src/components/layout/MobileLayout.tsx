@@ -11,7 +11,8 @@ interface MobileLayoutProps {
 
 const MobileLayout = ({
   children,
-  showNav = true,
+  // Nav теперь рендерится глобально в App, поэтому по умолчанию не показываем здесь
+  showNav = false,
   scrollable = true,
   contentPaddingBottomClass = "pb-[10px]",
   fullWidth = false,

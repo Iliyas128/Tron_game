@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Leaders from "./pages/Leaders";
 import Friends from "./pages/Friends";
@@ -19,6 +19,7 @@ import leadersTopBackground from "@/assets/leader/leadersTopBackground.svg";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull.png";
 import leaderRewardFull1 from "@/assets/leader/leaderRewardFull1.png";
 import leaderRedDots from "@/assets/leader/redDots.svg";
+import BottomNavigation from "./components/layout/BottomNavigation";
 
 const queryClient = new QueryClient();
 
@@ -79,12 +80,13 @@ const App = () => {
     // Никаких глобальных блокировок скролла — полагаемся на disableVerticalSwipes
   }, []);
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+  const AppRoutes = () => {
+    const location = useLocation();
+    const hideNav = location.pathname === "/game";
+
+    return (
+      <>
+        <div className={hideNav ? "min-h-screen" : "min-h-screen pb-[104px]"}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/leaders" element={<Leaders />} />
@@ -95,6 +97,19 @@ const App = () => {
             <Route path="/game" element={<Game />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+        </div>
+        {!hideNav && <BottomNavigation />}
+      </>
+    );
+  };
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppRoutes />
         </BrowserRouter>
       </TooltipProvider>
       {isLoading && (

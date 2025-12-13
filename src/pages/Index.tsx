@@ -9,7 +9,6 @@ import diamondsIcon from "@/assets/diamonds.svg";
 import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
 import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
-import frame1 from "@/assets/backgroundInMain.svg";
 import avatar from "@/assets/mainUserLogo.svg";
 import mainBackground from "@/assets/mainBackground.svg";
 import background from "@/assets/background.svg";

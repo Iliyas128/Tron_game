@@ -117,3 +117,8 @@ body, html {
     box-shadow: 0 0 10px hsl(0 100% 50% / 0.3);
   }
 }
+
+/* Hide bottom navigation when modal requires full focus */
+.nav-hidden .bottom-nav {
+  display: none;
+}

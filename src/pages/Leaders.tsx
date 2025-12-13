@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.png";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
@@ -55,6 +55,15 @@ const Leaders = () => {
   const [activeTab, setActiveTab] = useState("Кланы");
   const [activePeriod, setActivePeriod] = useState<"Месяц" | "Всё время">("Месяц");
   const [showRewards, setShowRewards] = useState(false);
+
+  useEffect(() => {
+    if (showRewards) {
+      document.body.classList.add("nav-hidden");
+    } else {
+      document.body.classList.remove("nav-hidden");
+    }
+    return () => document.body.classList.remove("nav-hidden");
+  }, [showRewards]);
 
   const renderCard = (item: { id: number; title: string; subtitle: string; score: number; badge: string }) => (
     <div
