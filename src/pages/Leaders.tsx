@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
-import leaderTopRobot from "@/assets/leader/leaderTopRobot.svg";
+import leaderTopRobot from "@/assets/leader/leaderTopRobot.png";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
 import leaderUserLogo from "@/assets/mainUserLogo.svg";

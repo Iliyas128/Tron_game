@@ -1,5 +1,5 @@
 import MobileLayout from "@/components/layout/MobileLayout";
-import friendsRobot from "@/assets/friends/friendsRobot.svg";
+import friendsRobot from "@/assets/friends/friendsRobot.png";
 import friendsWhiteGold from "@/assets/friends/friendsWhiteGold.svg";
 import goldsIcon from "@/assets/golds.svg";
 import mainUserLogo from "@/assets/mainUserLogo.svg";

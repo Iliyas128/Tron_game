@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import Header from "@/components/layout/Header";
-import tasksRobot from "@/assets/tasks/tasksRobot.svg";
+import tasksRobot from "@/assets/tasks/tasksRobot.png";
 import tasksClickLogo from "@/assets/tasks/tasksClickLogo.svg";
 import tasksWatchLogo from "@/assets/tasks/tasksWatchLogo.svg";
 import tasksDreamCoinLogo from "@/assets/tasks/tasksDreamCoinLogo.svg";
