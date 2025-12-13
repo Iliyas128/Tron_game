@@ -13,12 +13,39 @@ import NotFound from "./pages/NotFound";
 import PreGame from "./pages/PreGame";
 import Game from "./pages/Game";
 import mainBackground from "@/assets/background.svg";
+import mainHeroBackground from "@/assets/mainBackground.svg";
+import backgroundInMain from "@/assets/backgroundInMain.svg";
+import pvpButton from "@/assets/pvpButton.svg";
 import gameMainBackground from "@/assets/game/gameMainBackground.png";
 import gameBackground4x from "@/assets/match/gameBackground4x.png";
 import leadersTopBackground from "@/assets/leader/leadersTopBackground.svg";
+import leaderTopRobot from "@/assets/leader/leaderTopRobot.png";
 import leaderRewardFull from "@/assets/leader/leaderRewardFull.png";
 import leaderRewardFull1 from "@/assets/leader/leaderRewardFull1.png";
 import leaderRedDots from "@/assets/leader/redDots.svg";
+import leaderRewardFrame from "@/assets/leader/redFrame538.svg";
+import firstPlaceLogo from "@/assets/firstPlaceLogo.svg";
+import secondPlaceLogo from "@/assets/secondPlaceLogo.svg";
+import thirdPlaceLogo from "@/assets/thirdPlaceLogo.svg";
+import friendsBackground from "@/assets/friends/friendsBackground.svg";
+import friendsRobot from "@/assets/friends/friendsRobot.png";
+import tasksRobot from "@/assets/tasks/tasksRobot.png";
+import tasksClickLogo from "@/assets/tasks/tasksClickLogo.svg";
+import tasksWatchLogo from "@/assets/tasks/tasksWatchLogo.svg";
+import tasksDreamCoinLogo from "@/assets/tasks/tasksDreamCoinLogo.svg";
+import tasksModalFrame from "@/assets/redFrame517.svg";
+import pregameOpponentBack from "@/assets/game/gameOpponentBack.svg";
+import pregameMyBack from "@/assets/game/gameMyBack.svg";
+import pregameTopVector from "@/assets/game/gameTopVector.svg";
+import internetSpeedIcon from "@/assets/game/internetSpeedIcon.svg";
+import terminalIcon from "@/assets/game/terminalIcon.svg";
+import redInternetSpeedIcon from "@/assets/game/redInternetSpeedIcon.svg";
+import redTerminalIcon from "@/assets/game/redTerminalIcon.svg";
+import gameScoreboard from "@/assets/match/mainScoreboard.png";
+import numberButton from "@/assets/game/numberButton.svg";
+import zeroButton from "@/assets/game/zeroButton.svg";
+import onClickButton from "@/assets/game/onClickButton.svg";
+import fireIcon from "@/assets/fire.svg";
 import BottomNavigation from "./components/layout/BottomNavigation";
 
 const queryClient = new QueryClient();
@@ -36,14 +63,46 @@ const App = () => {
       });
 
     const assetsToPreload = [
+      // Main / landing
       mainBackground,
+      mainHeroBackground,
+      backgroundInMain,
+      pvpButton,
+      // PreGame
       gameMainBackground,
+      pregameOpponentBack,
+      pregameMyBack,
+      pregameTopVector,
+      internetSpeedIcon,
+      terminalIcon,
+      redInternetSpeedIcon,
+      redTerminalIcon,
+      // Game
       gameBackground4x,
+      gameScoreboard,
+      numberButton,
+      zeroButton,
+      onClickButton,
+      fireIcon,
+      // Leaders
       leadersTopBackground,
+      leaderTopRobot,
       leaderRewardFull,
       leaderRewardFull1,
       leaderRedDots,
-      "/friends/friendsBackground.svg",
+      leaderRewardFrame,
+      firstPlaceLogo,
+      secondPlaceLogo,
+      thirdPlaceLogo,
+      // Friends
+      friendsBackground,
+      friendsRobot,
+      // Tasks
+      tasksRobot,
+      tasksClickLogo,
+      tasksWatchLogo,
+      tasksDreamCoinLogo,
+      tasksModalFrame,
     ];
 
     Promise.all(assetsToPreload.map(preloadImage)).finally(() => {
