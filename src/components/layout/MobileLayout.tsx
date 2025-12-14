@@ -32,7 +32,7 @@ const MobileLayout = ({
     ? "bg-background flex flex-col w-full mx-auto relative min-h-screen"
     : fullWidth
       ? "bg-background flex flex-col w-full relative overflow-hidden"
-      : "bg-background flex flex-col w-full max-w-[390px] mx-auto relative overflow-hidden";
+      : "bg-background flex flex-col w-full max-w-[100svw] mx-auto relative overflow-hidden";
   const contentClasses = scrollable
     ? `flex-1 overflow-auto ${contentPaddingBottomClass}`
     : `flex-1 overflow-hidden ${contentPaddingBottomClass}`;

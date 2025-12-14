@@ -10,7 +10,8 @@ import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
 import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
 import avatar from "@/assets/mainUserLogo.webp";
-import mainBackground from "@/assets/mainBackgroundExceptR.svg";
+import mainBackgroundExceptR from "@/assets/mainBackgroundExceptR.svg";
+import mainBackground from "@/assets/mainJustRobot57.webp";
 import background from "@/assets/background.svg";
 import pvpButton from "@/assets/pvpButton.svg";
 import redFrame407 from "@/assets/redFrame407.svg";
@@ -35,13 +36,13 @@ const Index = () => {
   return (
     <MobileLayout scrollable={false} contentPaddingBottomClass="pb-0">
       <div
-        className="relative min-h-screen bg-cover bg-no-repeat pb-28"
+        className="relative bg-cover bg-no-repeat pb-28"
         style={{ backgroundImage: `url(${background})` }}
       >
-        <div className="absolute inset-0 bg-black/42 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none" />
         <Header />
 
-        <div className="px-4">
+        <div className="px-4 mx-[0.5vh]">
           <div className="flex justify-between items-center mt-1 mb-3">
             <span className="text-sm font-semibold text-white font-montserrat">Балансы</span>
             <div className="flex items-center gap-3 text-white text-base font-semibold">
@@ -79,17 +80,25 @@ const Index = () => {
           </div>
 
           {/* Main hero */}
-          <div className="relative rounded-3xl overflow-hidden mt-4 -mx-2">
+          <div
+            className="relative rounded-3xl overflow-hidden mt-4 "
+            style={{ height: "clamp(380px, 68vh, 760px)" }}
+          >
+            <img
+              src={mainBackgroundExceptR}
+              alt="Main background layer"
+              className="absolute inset-x-0 bottom-0 w-full object-cover object-bottom"
+              style={{ top: "14%" }}
+            />
             <img
               src={mainBackground}
-              alt="Main background"
-              className="w-full h-auto object-cover aspect-[13/16]"
+              alt="Main robot"
+              className="absolute inset-0 pb-[20vh] w-full h-[full] object-contain z-10"
             />
-            <div className="absolute inset-0 bg-black/35" />
-            <div className="absolute inset-0 flex items-end justify-center pb-10">
+            <div className="absolute inset-0 flex items-end justify-center pb-[19vh] z-20 pointer-events-none">
               <Button
                 variant="ghost"
-                className="p-0 bg-transparent hover:bg-transparent"
+                className="p-0 bg-transparent hover:bg-transparent pointer-events-auto"
                 onClick={() => setShowBetModal(true)}
               >
                 <img src={pvpButton} alt="PvP" className="h-16 w-auto" />
