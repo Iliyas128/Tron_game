@@ -10,7 +10,7 @@ import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
 import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
 import avatar from "@/assets/mainUserLogo.webp";
-import mainBackground from "@/assets/mainRobot2.webp";
+import mainBackground from "@/assets/mainBackground67.png";
 import background from "@/assets/background.svg";
 import pvpButton from "@/assets/pvpButton.svg";
 import redFrame407 from "@/assets/redFrame407.svg";
