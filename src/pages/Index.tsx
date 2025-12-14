@@ -9,8 +9,8 @@ import diamondsIcon from "@/assets/diamonds.svg";
 import goldsIcon from "@/assets/golds.svg";
 import miniCupsIcon from "@/assets/miniCups.svg";
 import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
-import avatar from "@/assets/mainUserLogo.svg";
-import mainBackground from "@/assets/mainBackground.svg";
+import avatar from "@/assets/mainUserLogo.webp";
+import mainBackground from "@/assets/mainRobot2.webp";
 import background from "@/assets/background.svg";
 import pvpButton from "@/assets/pvpButton.svg";
 import redFrame407 from "@/assets/redFrame407.svg";
@@ -24,7 +24,7 @@ const Index = () => {
   const potentialWin = selectedBet ? Math.round(selectedBet * 1.2 * 100) / 100 : 0;
 
   return (
-    <MobileLayout contentPaddingBottomClass="pb-0">
+    <MobileLayout scrollable={false} contentPaddingBottomClass="pb-0">
       <div
         className="relative min-h-screen bg-cover bg-no-repeat pb-28"
         style={{ backgroundImage: `url(${background})` }}
@@ -38,17 +38,17 @@ const Index = () => {
             <div className="flex items-center gap-3 text-white text-base font-semibold">
               <div className="flex items-center gap-1">
                 <img src={diamondsIcon} alt="Diamonds" className="w-4 h-4" />
-                <span className="font-montserrat text-sm">17</span>
+                <span className="font-montserrat font-semibold text-sm">17</span>
               </div>
               <div className="flex items-center gap-1">
                 <img src={goldsIcon} alt="Golds" className="w-4 h-4" />
-                <span className="font-montserrat text-sm">3.2</span>
+                <span className="font-montserrat font-semibold text-sm">3.2</span>
               </div>
             </div>
           </div>
 
           {/* Profile Card */}
-          <div className="bg-[url('/src/assets/backgroundInMain.svg')] bg-cover bg-no-repeat bg-center rounded-3xl px-4 py-4 flex gap-4 items-center shadow-[0_20px_60px_-30px_rgba(0,0,0,0.6)]">
+          <div className="bg-[url('/src/assets/backgroundInMain.svg')] bg-cover bg-no-repeat bg-center rounded-2xl px-4 py-4 flex gap-4 items-center">
             <div className="shrink-0">
               <img src={avatar} alt="avatar" className="w-20 h-20 rounded-2xl" />
             </div>
@@ -56,12 +56,12 @@ const Index = () => {
               <h1 className="text-white text-xl leading-[22px] font-bold leading-tight truncate font-montserrat">
                 Name Username
               </h1>
-              <p className="text-white text-sm leading-none font-montserrat">@user_name</p>
-              <div className="flex items-center gap-3 mt-2">
-                <div className="px-3 py-1 bg-white/10 text-white text-sm font-medium rounded-lg font-montserrat">
+              <p className="text-gray-500 text-sm leading-none font-montserrat">@user_name</p>
+              <div className="flex pt-0.5 items-center gap-3 ">
+                <div className="px-3 py-1 bg-white/10 text-white text-sm font-medium rounded-sm font-montserrat">
                   Cyber Warriors
                 </div>
-                <div className="flex items-center gap-1 px-3 py-1 bg-[#b10000] text-white text-sm rounded-lg">
+                <div className="flex items-center gap-1 px-3 py-1 bg-[#b10000] text-white text-sm rounded-sm">
                   <img src={miniCupsIcon} alt="miniCups" className="w-3 h-3" />
                   <span className="text-sm font-semibold font-montserrat">7983</span>
                 </div>

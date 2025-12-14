@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import PreGame from "./pages/PreGame";
 import Game from "./pages/Game";
 import mainBackground from "@/assets/background.svg";
-import mainHeroBackground from "@/assets/mainBackground.svg";
+import mainHeroBackground from "@/assets/mainRobot2.webp";
 import backgroundInMain from "@/assets/backgroundInMain.svg";
 import pvpButton from "@/assets/pvpButton.svg";
 import gameMainBackground from "@/assets/game/gameMainBackground.png";

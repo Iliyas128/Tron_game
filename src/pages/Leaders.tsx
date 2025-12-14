@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import leaderTopRobot from "@/assets/leader/leaderTopRobot.png";
 import leaderTopBackground from "@/assets/leader/leadersTopBackground.svg";
-import leaderRewardFull from "@/assets/leader/leaderRewardFull1.png";
-import leaderUserLogo from "@/assets/mainUserLogo.svg";
+import leaderRewardFull from "@/assets/leader/leaderRewardFull4.png";
+import leaderUserLogo from "@/assets/mainUserLogo.webp";
 import leaderScoreFire from "@/assets/leader/leaderScoreFire.svg";
 import redFrame517 from "@/assets/leader/redFrame538.svg";
 import firstPlaceLogo from "@/assets/firstPlaceLogo.svg";
@@ -103,9 +103,9 @@ const Leaders = () => {
           />
           {/* Reward banner */}
           <div
-            className="w-full px-4 pb-[clamp(48px,8vw,88px)]"
+            className="w-full px-4 pb-[clamp(58px,8vw,88px)]"
             style={{ 
-               marginTop: "clamp(318px, 6vh, 64px)"
+               marginTop: "clamp(310px, 6vh, 64px)"
             }}
           >
             <div className="relative w-full aspect-[345/138] overflow-hidden rounded-3xl shadow-[0_20px_60px_-25px_rgba(0,0,0,0.8)]">
@@ -156,7 +156,7 @@ const Leaders = () => {
         <div className="relative w-full h-[calc(100svh-540px)] bg-black/30 bg-cover bg-center flex flex-col overflow-visible"
         style={{ backgroundImage: `url(${leaderTopBackgroundReverse})` }}
         >
-        <div className="px-[clamp(12px,4vw,20px)] -mt-[clamp(10px,5vw,28px)] space-y-[clamp(10px,4vw,18px)]">
+        <div className="px-[clamp(12px,4vw,20px)] -mt-[clamp(10px,5vw,28px)] space-y-[clamp(8px,2vw,16px)]">
           <h2 className="font-semibold text-sm font-montserrat">Моё место</h2>
           {clanPlaces.map(renderCard)}
         </div>
@@ -173,7 +173,7 @@ const Leaders = () => {
                   className={` transition-colors ${
                     activeTab === tab
                       ? "text-white border-b-2 border-white text-[16px]"
-                      : "text-white/50 text-[12px]"
+                      : "text-white/50"
                   }`}
                 >
                   {tab}
