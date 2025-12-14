@@ -1,7 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { ChevronLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.webp";
 
 interface HeaderProps {
   onExit?: () => void;

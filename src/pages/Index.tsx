@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MobileLayout from "@/components/layout/MobileLayout";
 import Header from "@/components/layout/Header";
@@ -22,6 +22,15 @@ const Index = () => {
   const [showBetModal, setShowBetModal] = useState(false);
   const [selectedBet, setSelectedBet] = useState<number | null>(null);
   const potentialWin = selectedBet ? Math.round(selectedBet * 1.2 * 100) / 100 : 0;
+
+  useEffect(() => {
+    if (showBetModal) {
+      document.body.classList.add("nav-hidden");
+    } else {
+      document.body.classList.remove("nav-hidden");
+    }
+    return () => document.body.classList.remove("nav-hidden");
+  }, [showBetModal]);
 
   return (
     <MobileLayout scrollable={false} contentPaddingBottomClass="pb-0">
@@ -76,6 +85,7 @@ const Index = () => {
               alt="Main background"
               className="w-full h-auto object-cover aspect-[13/16]"
             />
+            <div className="absolute inset-0 bg-black/35" />
             <div className="absolute inset-0 flex items-end justify-center pb-10">
               <Button
                 variant="ghost"
@@ -106,16 +116,16 @@ const Index = () => {
               }}
             >
               <button
-                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-black/30 text-white text-3xl leading-none"
+                className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-white text-5xl font-jura leading-none"
                 onClick={() => setShowBetModal(false)}
               >
                 ×
               </button>
 
-              <div className="px-6 pt-10 space-y-6">
+              <div className="px-6 pt-14 space-y-6">
                 <div className="text-center space-y-2">
-                  <h3 className="text-3xl font-semibold">Сделайте ставку</h3>
-                  <p className="text-base text-white/80 leading-snug">
+                  <h3 className="text-[24px] font-jura font-bold">Сделайте ставку</h3>
+                  <p className="text-[12px] font-montserrat font-medium text-[#9f9f9f] leading-snug">
                     Выберите сумму для входа в бой,
                     <br />
                     потенциальный выигрыш — до +120%.
@@ -128,7 +138,7 @@ const Index = () => {
                       key={bet}
                       onClick={() => setSelectedBet(bet)}
                       className={cn(
-                        "flex items-center gap-2 px-3 py-2 rounded-xl text-xl font-semibold transition",
+                        "flex items-center gap-2 px-3 py-2 rounded-xl text-lg font-semibold transition",
                         selectedBet === bet ? "bg-red-800" : "bg-transparent"
                       )}
                     >
@@ -147,7 +157,7 @@ const Index = () => {
                   ))}
                 </div>
 
-                <div className="pt-2">
+                <div >
                   <button
                     disabled={!selectedBet}
                     className={cn(
@@ -161,9 +171,9 @@ const Index = () => {
                       navigate("/pre-game");
                     }}
                   >
-                    <span className="text-xl font-semibold text-white">Начать сражение</span>
+                    <span className="text-[16px] font-montserrat pt-0.5 font-semibold text-white">Начать сражение</span>
                   </button>
-                  <div className="mt-3 text-center text-sm text-white/80 flex items-center gap-2 justify-center">
+                  <div className="mt-3 text-center text-sm font-montserrat font-medium text-[#9f9f9f] flex items-center gap-2 justify-center">
                     <span>Потенциальный выигрыш:</span>
                     <img src={tensentIcon} alt="win" className="w-4 h-4" />
                     <span>{potentialWin}</span>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MobileLayout from "@/components/layout/MobileLayout";
 import Header from "@/components/layout/Header";
-import tasksRobot from "@/assets/tasks/tasksRobot.png";
+import tasksRobot from "@/assets/tasks/tasksRobot.webp";
 import tasksClickLogo from "@/assets/tasks/tasksClickLogo.svg";
 import tasksWatchLogo from "@/assets/tasks/tasksWatchLogo.svg";
 import tasksDreamCoinLogo from "@/assets/tasks/tasksDreamCoinLogo.svg";
@@ -125,39 +125,45 @@ const Tasks = () => {
   }, [modalTask]);
 
   const renderActionCounts = (task: TaskItem) => (
-    <div className="flex items-center gap-3 text-sm text-white/80">
+    <div className={`flex items-center gap-3 text-white/80 ${subTextClass}`}>
       {task.primaryCount && (
         <div className="flex items-center gap-1">
           <img src={diamondsIcon} alt="reward" className="w-4 h-4" />
-          <span>{task.primaryCount}</span>
+          <span className={subTextClass}>{task.primaryCount}</span>
         </div>
       )}
       {task.secondaryCount && (
         <div className="flex items-center gap-1">
           <img src={starIcon} alt="star" className="w-4 h-4" />
-          <span>{task.secondaryCount}</span>
+          <span className={subTextClass}>{task.secondaryCount}</span>
         </div>
       )}
     </div>
   );
 
   const renderRewardCounts = (task: TaskItem) => (
-    <div className="flex items-center gap-1 text-sm text-white/80">
-      {task.primaryCount && <span className="text-base font-semibold">{task.primaryCount}</span>}
+    <div className={`flex items-center gap-1 text-white/80 ${subTextClass}`}>
+      {task.primaryCount && (
+        <span className={`${subTextClass} font-semibold text-white`}>{task.primaryCount}</span>
+      )}
       <img src={diamondsIcon} alt="reward" className="w-4 h-4" />
     </div>
   );
 
-  const buttonTone = (tone: TaskItem["actionTone"]) => {
+  const buttonConfig = (tone: TaskItem["actionTone"]) => {
     switch (tone) {
       case "secondary":
-        return "bg-transparent border border-white/20 text-white";
+        return { label: "Выполнить", className: "bg-[#0e0e0e] border border-white/20 flex items-center justify-center text-white", width: "w-[102px]" };
       case "ghost":
-        return "bg-[#2a2a2a] text-white/70";
+        return { label: "На проверке...", className: "bg-[#121212] text-white", width: "w-[122px]" };
       default:
-        return "bg-[#c40000] text-white shadow-[0_10px_30px_-10px_rgba(196,0,0,0.8)]";
+        return { label: "Получить", className: "bg-[#c40000] text-white", width: "w-[102px]" };
     }
   };
+
+  const titleClass = "font-montserrat text-[14px] leading-[1] font-semibold";
+  const subTextClass = "font-montserrat text-[12px] leading-[1]";
+  const buttonFontClass = "font-montserrat text-[12px] leading-[1] font-semibold";
 
   return (
     <MobileLayout>
@@ -168,44 +174,78 @@ const Tasks = () => {
         style={{ maxHeight: "calc(100vh - 90px)" }}
       >
         {/* Hero */}
-        <div className="relative h-[200px] w-full rounded-3xl overflow-hidden mb-6">
+        <div className="relative h-[200px] w-full rounded-3xl overflow-hidden mb-4">
           <img
             src={tasksRobot}
             alt="tasks hero"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div/>
+          <div className="absolute inset-0 flex flex-col justify-end items-start px-4 pb-4 gap-1">
+            <h2 className="text-[30px] leading-[1] font-jura font-bold text-[#ffffff]">Задания</h2>
+            <p className={`${subTextClass} text-[#919191]`}>
+              Выполняйте миссии, получайте пазлы
+              <br />
+              и участвуйте в pvp-сражениях.
+            </p>
+          </div>
         </div>
 
         {/* List */}
-        <div className="text-base font-medium font-montserrat">Ежедневные</div>
+        <div className="text-base pb-1 font-medium font-montserrat">Ежедневные</div>
         <div className="space-y-3">
-              {tasks.map((task) => (
+          {tasks.map((task) => (
             <div
               key={task.id}
-              className="h-[60px] rounded-2xl border border-white/10 bg-[#121212] px-4 flex items-center justify-between"
-                  onClick={() => setModalTask(task)}
+              className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-4 flex items-center justify-between"
+              onClick={() => setModalTask(task)}
             >
-              <div className="flex items-center gap-3 overflow-hidden">
+              <div className="flex items-center gap-3  overflow-hidden">
                 <img src={task.icon} alt={task.title} className="w-10 h-10 rounded-xl" />
-                <div className="flex flex-col leading-tight overflow-hidden">
-                  <div className="text-xs font-semibold truncate">{task.title}</div>
-                  {task.type === "action" && renderActionCounts(task)}
-                  {task.type === "reward" && renderRewardCounts(task)}
+                <div className="flex flex-col leading-tight space-y-1.5 overflow-hidden">
+                  <div className={`truncate ${titleClass}`}>{task.title}</div>
+                  {task.type === "action" && (
+                    <div className={`flex items-center gap-3 text-white/80 ${subTextClass}`}>
+                      {task.primaryCount && (
+                        <div className="flex items-center gap-1">
+                          <img src={diamondsIcon} alt="reward" className="w-4 h-4" />
+                          <span className={subTextClass}>{task.primaryCount}</span>
+                        </div>
+                      )}
+                      {task.secondaryCount && (
+                        <div className="flex items-center gap-1">
+                          <img src={starIcon} alt="star" className="w-4 h-4" />
+                          <span className={subTextClass}>{task.secondaryCount}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {task.type === "reward" && (
+                    <div className={`flex items-center gap-1 text-white/80 ${subTextClass}`}>
+                      {task.primaryCount && (
+                        <span className={`${subTextClass} font-semibold text-white`}>
+                          {task.primaryCount}
+                        </span>
+                      )}
+                      <img src={diamondsIcon} alt="reward" className="w-4 h-4" />
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <button
-                className={`min-w-[110px] h-10 px-4 rounded-2xl text-[10px] font-semibold ${buttonTone(
-                  task.actionTone
-                )}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setModalTask(task);
-                  }}
-              >
-                {task.actionLabel}
-              </button>
+              {(() => {
+                const { label, className, width } = buttonConfig(task.actionTone);
+                return (
+                  <button
+                    className={`h-[36px] px-5 rounded-2xl whitespace-nowrap text-center ${buttonFontClass} ${className} ${width}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setModalTask(task);
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })()}
             </div>
           ))}
 
@@ -214,28 +254,40 @@ const Tasks = () => {
           {sponsorTasks.map((task) => (
             <div
               key={task.id}
-              className="h-[60px] rounded-2xl border border-white/10 bg-[#121212] px-4 flex items-center justify-between"
+              className="h-[60px] rounded-2xl border border-white/10 bg-[#0e0e0e] px-4 flex items-center justify-between"
               onClick={() => setModalTask(task)}
             >
               <div className="flex items-center gap-3 overflow-hidden">
                 <img src={task.icon} alt={task.title} className="w-10 h-10 rounded-xl" />
                 <div className="flex flex-col leading-tight overflow-hidden">
-                  <div className="text-sm font-semibold truncate">{task.title}</div>
-                  {task.type === "reward" && renderRewardCounts(task)}
+                  <div className={`truncate ${titleClass}`}>{task.title}</div>
+                  {task.type === "reward" && (
+                    <div className={`flex items-center gap-1 text-white/80 ${subTextClass}`}>
+                      {task.primaryCount && (
+                        <span className={`${subTextClass} font-semibold text-white`}>
+                          {task.primaryCount}
+                        </span>
+                      )}
+                      <img src={diamondsIcon} alt="reward" className="w-4 h-4" />
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <button
-                className={`min-w-[110px] h-10 px-4 rounded-2xl text-sm font-semibold ${buttonTone(
-                  task.actionTone
-                )}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setModalTask(task);
-                }}
-              >
-                {task.actionLabel}
-              </button>
+              {(() => {
+                const { label, className, width } = buttonConfig(task.actionTone);
+                return (
+                  <button
+                    className={`h-[36px] px-5 rounded-2xl whitespace-nowrap text-center ${buttonFontClass} ${className} ${width}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setModalTask(task);
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })()}
             </div>
           ))}
         </div>

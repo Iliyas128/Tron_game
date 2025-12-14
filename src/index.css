@@ -122,3 +122,11 @@ body, html {
 .nav-hidden .bottom-nav {
   display: none;
 }
+
+/* Lock background scroll when nav-hidden is active (modals) */
+body.nav-hidden {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+}
