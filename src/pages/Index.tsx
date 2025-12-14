@@ -11,7 +11,7 @@ import miniCupsIcon from "@/assets/miniCups.svg";
 import whiteDiamondsIcon from "@/assets/whiteDiamondIcons.png";
 import avatar from "@/assets/mainUserLogo.webp";
 import mainBackgroundExceptR from "@/assets/mainBackgroundExceptR.svg";
-import mainBackground from "@/assets/mainJustRobot57.webp";
+import mainBackground from "@/assets/mainJustRobot128.webp";
 import background from "@/assets/background.svg";
 import pvpButton from "@/assets/pvpButton.svg";
 import redFrame407 from "@/assets/redFrame407.svg";
@@ -93,7 +93,8 @@ const Index = () => {
             <img
               src={mainBackground}
               alt="Main robot"
-              className="absolute inset-0 pb-[20vh] w-full h-[full] object-contain z-10"
+              className="absolute inset-0 pb-[20vh] w-full object-contain z-10"
+              style={{ transform: "scale(1.0)"}}
             />
             <div className="absolute inset-0 flex items-end justify-center pb-[19vh] z-20 pointer-events-none">
               <Button
